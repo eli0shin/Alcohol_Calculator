@@ -1,0 +1,9 @@
+#drink-list li{
+  width: 70px;
+  height: 20px;
+  border: 1px solid black;
+  display: inline-block;
+  list-style-type: none;
+  cursor: pointer;
+  text-align: center;
+}
