@@ -1,18 +1,4 @@
-function addNewDrink() {
-  addNewDrunk($('#new-drink-name').val(), $('#new-drink-percent').val(), $('#new-drink-volume').val());
-  $('#new-drink-name').val('');
-  $('#new-drink-percent').val('');
-  $('#new-drink-volume').val('');
-}
-$('#submit').click(addNewDrink);
-$('#custom-drink').on('keydown', function(){if (event.keyCode == 13) addNewDrink()});
-
-/*  for (var i = 0; i < drinks.length; i++) {
-    $('#drink-list').innerHTML += '<li id="' + drinks[i].drink + '">' + drinks[i].drink + '</li>';
-    $('#' + drinks[i].drink).addEventListener('click', addNewDrunk(drinks[i].drink));
-  }*/
-
-
+//Adds a drink to the drunk and drinks array and displays drunk values on page
 function addNewDrunk(name, percentage, vol){
   var drinkNames = "";
   addDrunk(name, percentage, vol);
@@ -21,5 +7,28 @@ function addNewDrunk(name, percentage, vol){
     else drinkNames += '<div>' + drunk[i].drink;
     drinkNames += ' : ' + drunk[i].number + '</div>';
     $('#display-data').html(drinkNames);
+    displayDrinkList();
   }
 }
+//called when new drink form is submitted grabs data from form and passes to addNewDrunk, clears form
+function addNewDrink() {
+  addNewDrunk($('#new-drink-name').val(), $('#new-drink-percent').val(), $('#new-drink-volume').val());
+  $('#new-drink-name').val('');
+  $('#new-drink-percent').val('');
+  $('#new-drink-volume').val('');
+}
+//display values from drinks array as buttons to add drinks
+function displayDrinkList(){
+  var drinkList = '';
+  $.each(drinks, function(){
+    drinkList += '<li id="' + this.drink + '">' + this.drink + '</li>';
+  });
+  $('#drink-list').html(drinkList);
+  $('#drink-list li').click(function(){addNewDrunk(this.id)});
+}
+
+//form event handlers
+$('#submit').click(addNewDrink);
+$('#custom-drink').on('keydown', function(){if (event.keyCode == 13) addNewDrink()});
+//display drink lists on load
+$(displayDrinkList());
