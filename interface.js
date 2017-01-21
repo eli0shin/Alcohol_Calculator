@@ -21,10 +21,10 @@ function addNewDrink() {
 function displayDrinkList(){
   var drinkList = '';
   $.each(drinks, function(){
-    drinkList += '<li id="' + this.drink + '">' + this.drink + '</li>';
+    drinkList += '<li>' + this.drink + '</li>';
   });
   $('#drink-list').html(drinkList);
-  $('#drink-list li').click(function(){addNewDrunk(this.id)});
+  $('#drink-list li').click(function(){addNewDrunk(this.text)});
 }
 
 //form event handlers
