@@ -13,6 +13,13 @@ function addNewDrunk(name, percentage, vol){
 //called when new drink form is submitted grabs data from form and passes to addNewDrunk, clears form
 function addNewDrink() {
   addNewDrunk($('#new-drink-name').val(), $('#new-drink-percent').val(), $('#new-drink-volume').val());
+  $.ajax({
+	  type: 'POST',
+	  url: 'drinks.php',
+	  data: { "drinkName" : $('#new-drink-name').val(), "alcoholPercent" : $('#new-drink-percent').val(), "drinkVolume" : $('#new-drink-volume').val()},
+	  success: function() { console.log('ajax success'); },
+	  error: function () { console.log('ajax error'); }
+  });
   $('#new-drink-name').val('');
   $('#new-drink-percent').val('');
   $('#new-drink-volume').val('');
@@ -21,10 +28,10 @@ function addNewDrink() {
 function displayDrinkList(){
   var drinkList = '';
   $.each(drinks, function(){
-    drinkList += '<li>' + this.drink + '</li>';
+    drinkList += '<li id ="' + this.drink + '">' + this.drink + '</li>';
   });
   $('#drink-list').html(drinkList);
-  $('#drink-list li').click(function(){addNewDrunk(this.text)});
+  $('#drink-list li').click(function(){addNewDrunk(this.id)});
 }
 
 //form event handlers
