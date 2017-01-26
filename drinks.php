@@ -1,6 +1,6 @@
 <?
-$con = mysql_connect('localhost','root','') or die('couldn\'t connect.');   
-mysql_select_db ('alcohol'); 
+$con = mysql_connect('localhost','root','') or die('couldn\'t connect.');
+mysql_select_db ('alcohol');
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 	if(isset($_REQUEST['drinkName']) and ($_REQUEST['alcoholPercent']) and ($_REQUEST['drinkVolume'])){
@@ -11,7 +11,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 	else{
 		exit();
 	}
-	
+
 	$sql = "INSERT INTO drink (drinkName, alcoholPercent, drinkVolume, userId) VALUES ('$drinkName', '$alcoholPercent', '$drinkVolume', '18')";
 	mysql_query($sql) or die(mysql_error());
 
@@ -33,7 +33,7 @@ function getDrinks(){
 		array_push($drinksArr,$tmpArr);
 	}
 	$allDrinksArr = json_encode($drinksArr);
-	return $allDrinksArr;
+	echo $allDrinksArr;
 }
 
 ?>

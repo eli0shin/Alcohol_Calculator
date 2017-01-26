@@ -1,9 +1,12 @@
 #drink-list li{
-  width: 70px;
-  height: 20px;
+  padding: 5px 10px;
   border: 1px solid black;
+  margin: 3px 5px;
   display: inline-block;
   list-style-type: none;
   cursor: pointer;
   text-align: center;
+ }
+#form-error {
+  color: red;
 }
