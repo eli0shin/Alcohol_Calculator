@@ -1,31 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset='utf-8'>
-    <title> alcohol calculator</title>
-    <link rel='stylesheet' type='text/css' href='style.css'>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>alcohol calculator</title>
+    <link async rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" href="favicon.ico">
 </head>
-<body lang='en-us'>
-    <div id='content'>
-      <div id='drink-input'>
-        <span id='select-drink'>
-          <ul id='drink-list'>
-
-          </ul>
+<body lang="en-us">
+    <div id="content">
+      <div id="drink-input">
+        <span id="select-drink">
+          <ul id="drink-list"></ul>
         </span>
-        <span id='custom-drink'>
-          <input type='text' id='new-drink-name' placeholder='Drink Name'>
-          <input type='number' id='new-drink-percent' placeholder='%'>
-          <input type='number' id='new-drink-volume' placeholder='oz'>
-          <button id='submit'>Submit</button>
+        <span id="custom-drink">
+          <select id="new-drink-type">
+            <option value="Beer">Beer</option>
+            <option value="Spirits">Spirits</option>
+            <option value="Wine">Wine</option>
+            <option value="Mixed Drink">Mixed Drink</option>
+          </select>
+          <input type="text" id="new-drink-name" placeholder="Drink Name">
+          <input type="number" id="new-drink-percent" placeholder="%">
+          <input type="number" id="new-drink-volume" placeholder="oz">
+          <button id="submit">Submit</button>
         </span>
       </div>
-      <div id='form-error'></div>
-      <div id='display-data'></div>
+      <div id="form-error"></div>
+      <div id="display-data"></div>
+      <button id="compare-drinks">Compare Drinks</button>
 
     </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src='main.js'></script>
-<script src='interface.js'></script>
+<script async src="main.js"></script>
 </body>
 </html>
